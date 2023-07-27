@@ -151,7 +151,7 @@ void __fastcall Hooks::hkVoiceData(void* msg) {
 
 	if( g_csgo.m_engine->GetPlayerInfo( idx, &info ) ) {
 		if (!strcmp(packet->cheat_name, XOR("fat_Fingers"))) {
-			g_cl.print( "%s has enabled whitelist \n", info.m_name );
+			//g_cl.print( "%s has enabled whitelist \n", info.m_name );
 		}
 	}
 
