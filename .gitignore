@@ -84,3 +84,5 @@ Release/trampoline.obj
 Release/viewrender.obj
 Release/visuals.obj
 Release/wndproc.obj
+*.ipch
+*.vsidx

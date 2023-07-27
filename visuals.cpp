@@ -39,7 +39,7 @@ void Visuals::ModulateWorld() {
 		for (const auto& p : props)
 			p->ColorModulate(col2.r() / 255.f, col2.g() / 255.f, col2.b() / 255.f);
 
-		g_csgo.LoadNamedSky(XOR("sky_csgo_night02"));
+		g_csgo.LoadNamedSky(XOR("sky_l4d_rural02")); 
 	}
 
 	// disable night.
