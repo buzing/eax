@@ -23,7 +23,7 @@ void Form::draw( ) {
 	color.a( ) = m_alpha;
 
 	// background.
-	render::rect_filled( m_x, m_y, m_width, m_height, { 23, 23, 23, m_alpha } );
+	render::rect_filled( m_x, m_y, m_width, m_height, { 13, 13, 13, m_alpha } );
 	/*for (int io = 0; io < m_width / 2 - 5; io++) {
 		render::rect(m_x + 5 + (io * 2), m_y + 5, 1, m_height - 11, { 10, 10, 10, m_alpha }); // 20,20,20 - shit menu pattern
 	}*/
@@ -66,9 +66,9 @@ void Form::draw( ) {
 			std::string date = XOR(__DATE__);
 			std::string time = XOR( __TIME__);
 
-			std::string text = tfm::format( XOR( "last upd:  %s  /  %s" ), date.c_str(), time.c_str());
-			std::transform(text.begin(), text.end(), text.begin(), ::tolower);
-			render::menu_shade.string( el.x + el.w - 5, el.y + el.h - 16, { 205, 205, 205, m_alpha }, text, render::ALIGN_RIGHT );
+			//std::string text = tfm::format( XOR( "last upd:  %s  /  %s" ), date.c_str(), time.c_str());
+			//std::transform(text.begin(), text.end(), text.begin(), ::tolower);
+			//render::menu_shade.string( el.x + el.w - 5, el.y + el.h - 16, { 205, 205, 205, m_alpha }, text, render::ALIGN_RIGHT );
 
 			// iterate elements to display.
 			for( const auto& e : m_active_tab->m_elements ) {
