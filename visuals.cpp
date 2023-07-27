@@ -399,8 +399,8 @@ void Visuals::StatusIndicators() {
 		// PING
 		if (g_aimbot.m_fake_latency) {
 			Indicator_t ind{ };
-			ind.color = Color(255, 255, 255);
-			ind.text = XOR("PING");
+			ind.color = LerpRGB(Color(255, 0, 0), Color(150, 200, 60), std::clamp((g_csgo.m_cl->m_net_channel->GetLatency(INetChannel::FLOW_INCOMING) * 2500.f) / g_menu.main.misc.fake_latency_amt.get(), 0.f, 1.f));
+			ind.text = tfm::format(XOR("%i"), g_menu.main.misc.fake_latency_amt.get());
 			indicators.push_back(ind);
 		}
 
