@@ -86,3 +86,4 @@ Release/visuals.obj
 Release/wndproc.obj
 *.ipch
 *.vsidx
+Release/eax.tlog/CL.write.1.tlog
