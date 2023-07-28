@@ -87,3 +87,5 @@ Release/wndproc.obj
 *.ipch
 *.vsidx
 Release/eax.tlog/CL.write.1.tlog
+.vs/eax/v17/HierarchyCache.v1.txt
+.vs/eax/v17/fileList.bin
