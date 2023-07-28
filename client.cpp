@@ -53,12 +53,11 @@ void Client::DrawHUD( ) {
 	render::FontSize_t size = render::hud.size( text );
 
 	// background.
-	//render::rect_filled( m_width - size.m_width - 20, 10, size.m_width + 10, size.m_height + 2, { 240, 110, 140, 130 } );
+	render::rect_filled( m_width - size.m_width - 20, 10, size.m_width + 10, size.m_height + 2, { 15, 10, 15, 170 } );
 
 	// text.
-	//render::hud.string( m_width - 15, 10, { 240, 160, 180, 250 }, text, render::ALIGN_RIGHT );
+	render::hud.string( m_width - 15, 10, { 255, 255, 255, 255 }, text, render::ALIGN_RIGHT );
 
-	// xyren the visual legende will remake asap
 }
 
 void Client::KillFeed( ) {
@@ -483,8 +482,8 @@ void Client::UpdateLocal()
 			return;
 
 		// prevent model sway on player.
-		if (backup_animlayer && !g_menu.main.misc.bodeeeelean.get())
-			backup_animlayer[12].m_weight = 0.f;
+		//if (backup_animlayer && !g_menu.main.misc.bodeeeelean.get())
+			//backup_animlayer[12].m_weight = 0.f;
 	};
 
 	ApplyLocalPlayerModifications();
@@ -640,7 +639,7 @@ void Client::print( const std::string text, ... ) {
 	va_end( list );
 
 	// print to console.
-	g_csgo.m_cvar->ConsoleColorPrintf(g_gui.m_color, XOR( "[eax] " ) );
+	g_csgo.m_cvar->ConsoleColorPrintf(g_gui.m_color, XOR( "[eax-] " ) );
 	g_csgo.m_cvar->ConsoleColorPrintf( colors::white, buf.c_str( ) );
 }
 

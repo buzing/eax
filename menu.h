@@ -416,7 +416,7 @@ public:
 		lag_mode.setup( "", XOR( "lag_mode" ), { XOR( "max" ), XOR( "break" ), XOR( "random" ), XOR( "break step" ) }, false );
 		RegisterElement( &lag_mode, 1 );
 
-		lag_limit.setup( XOR( "limit" ), XOR( "lag_limit" ), 2, 21, true, 0, 2, 1.f );
+		lag_limit.setup( XOR( "limit" ), XOR( "lag_limit" ), 2, 14, true, 0, 2, 1.f );
 		RegisterElement( &lag_limit, 1 );
 
 		lag_land.setup( XOR( "on land" ), XOR( "lag_land" ) );
@@ -827,7 +827,7 @@ public:
 		weapon_chams.AddShowCallback(callbacks::IsChamsSelection6);
 		RegisterElement(&weapon_chams, 1);
 
-		weapon_chams_mat.setup(XOR("weapon material"), XOR("weapon_chams_mat"), { XOR("material"), XOR("flat"), XOR("metallic"), XOR("gloss"), XOR("glow"), XOR("outline glow") });
+		weapon_chams_mat.setup(XOR("weapon material"), XOR("weapon_chams_mat"), { XOR("material"), XOR("flat"), XOR("metallic"), XOR("gloss"), XOR("glow"), XOR("outline glow"), XOR("styles")});
 		weapon_chams_mat.AddShowCallback(callbacks::IsChamsSelection6);
 		RegisterElement(&weapon_chams_mat, 1);
 
@@ -2233,7 +2233,7 @@ public:
 	void init( ) {
 		SetTitle( XOR( "misc" ) );
 
-		fov_amt.setup("override fov", XOR("fov_amt"), 60.f, 140.f, true, 0, 90.f, 1.f, XOR(L"°"));
+		fov_amt.setup("override fov", XOR("fov_amt"), 60.f, 120.f, true, 0, 90.f, 1.f, XOR(L"°"));
 		RegisterElement(&fov_amt);
 
 		fast_stop.setup(XOR("standalone quick stop"), XOR("fast_stop"));

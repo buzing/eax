@@ -66,6 +66,13 @@ void Chams::init() {
 		"$alpha" "0.8"
 		})#";
 
+	std::ofstream("csgo/materials/styler.vmt") << R"#("VertexLitGeneric"
+     {
+     				"$basetexture"				"vgui/white_additive"
+					"$ignorez"					"1"
+                    "$wireframe"					"1"
+      })#";
+    
 	std::ofstream("csgo\\materials\\regular_reflective.vmt") << R"#("VertexLitGeneric" {
 					"$basetexture"				"vgui/white_additive"
 					"$ignorez"					"0"
@@ -96,6 +103,7 @@ void Chams::init() {
 	m_materials.push_back(g_csgo.m_material_system->FindMaterial(XOR("models/inventory_items/trophy_majors/gloss"), XOR("Model textures")));
 	m_materials.push_back(g_csgo.m_material_system->FindMaterial(XOR("glow"), nullptr));
 	m_materials.push_back(g_csgo.m_material_system->FindMaterial(XOR("dev/glow_armsrace"), XOR("Model textures")));
+	m_materials.push_back(g_csgo.m_material_system->FindMaterial(XOR("styler"), XOR("Model Textures")));
 
 	for (int i = 0; i < m_materials.size(); i++) {
 		m_materials[i]->IncrementReferenceCount();
