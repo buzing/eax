@@ -2332,7 +2332,7 @@ public:
 		bodeeeelean.setup(XOR("bodee lean"), XOR("bodeeeelean"));
 		RegisterElement(&bodeeeelean, 1);
 
-		menu_color.setup(XOR("menu color"), XOR("menu_color"), { 151, 200, 60 }, &g_gui.m_color);
+		menu_color.setup(XOR("menu color"), XOR("menu_color"), { colors::light_blue }, &g_gui.m_color);
 		RegisterElement(&menu_color, 1);
 
 		dumper.setup(XOR("listen to voice data"), XOR("vcdatadbg"));
