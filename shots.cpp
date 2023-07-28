@@ -133,7 +133,7 @@ void Shots::OnShotFire(Player* target, float damage, int bullets, LagRecord* rec
 			shot.m_had_pred_error = history_ticks < 0;
 			if (data)
 				++data->m_shots;
-				g_notify.add(tfm::format("fire: %s[%i], mode: %s, backtrack: %i,  point: %s\n", info.m_name, target->index(), TranslateResolverMode(record->m_mode), game::TIME_TO_TICKS(data->m_records.front().get()->m_sim_time - record->m_sim_time), m_groups[hitgroup]));
+				g_notify.add(tfm::format("n: %s[%i], m: %s, bt: %i,  p: %s\n", info.m_name, target->index(), TranslateResolverMode(record->m_mode), game::TIME_TO_TICKS(data->m_records.front().get()->m_sim_time - record->m_sim_time), m_groups[hitgroup]));
 		}
 
 		// add to tracks.
@@ -333,7 +333,7 @@ void Shots::OnHurt(IGameEvent* evt) {
 	};
 
 	
-	g_csgo.m_sound->EmitAmbientSound(XOR("buttons/arena_switch_press_02.wav"), 1.f);
+	g_csgo.m_sound->EmitAmbientSound(XOR("buttons/arena_switch_press_02.wav"), 2.f);
 		
 
 	if (group == HITGROUP_GENERIC)
@@ -385,7 +385,7 @@ void Shots::OnHurt(IGameEvent* evt) {
 		return;
 
 	
-	std::string out = tfm::format(XOR("hurt %s in the %s for %i damage (%i health remaining)\n"), name, m_groups[group], (int)damage, hp);
+	std::string out = tfm::format(XOR("name: %s in: %s dmg: %i (%i ramins)\n"), name, m_groups[group], (int)damage, hp);
 	g_notify.add(out);
 	
 
@@ -510,21 +510,21 @@ void Shots::OnShotMiss(ShotRecord& shot) {
 	const float impact_dist = shot.m_pos.dist_to(vec3_t(g_visuals.m_impacts.back().x, g_visuals.m_impacts.back().y, g_visuals.m_impacts.back().z));
 	// not gonna bother anymore.
 	if (!target->alive()) {
-		g_notify.add(XOR("missed shot due to player death\n"));
+		g_notify.add(XOR("missed shot due to neverlose LEL\n"));
 		return;
 	}
 
 
 	
 	if (!trace.m_entity || !trace.m_entity->IsPlayer() || trace.m_entity != target && g_cl.m_local->GetActiveWeapon()->GetInaccuracy() > 0.005f) {
-		g_notify.add(XOR("Missed shot due to spread\n"));
+		g_notify.add(XOR("Missed shot due to crack\n"));
 	}
 	else if (shot.m_aim_point.dist_to(pos) < trace.m_endpos.dist_to(start) /*point_dist > impact_dist*/) {
-		g_notify.add(XOR("Missed shot due to occlusion\n"));
+		g_notify.add(XOR("Missed shot due to ecstasy\n"));
 	}
 	else if (shot.m_had_pred_error)
 	{
-		g_notify.add(XOR("Missed shot due to prediction error\n"));
+		g_notify.add(XOR("Missed shot due to weed error\n"));
 	}
 	else if ( /*is_resolver_issue*/ trace.m_entity == target && shot.m_record->m_mode != Resolver::Modes::RESOLVE_NONE) {
 		// we should have 100% hit this player..
@@ -602,11 +602,11 @@ void Shots::OnShotMiss(ShotRecord& shot) {
 		
 			if (mode != Resolver::Modes::RESOLVE_BODY && !g_resolver.iPlayers[shot.m_record->m_player->index()])
 			{
-				g_notify.add(tfm::format("Missed shot due to animations\n"));
+				g_notify.add(tfm::format("Missed shot due to paysus\n"));
 			}
 			else {
 				// print resolver debug.
-				g_notify.add(tfm::format("Missed shot due to resolver\n"));
+				g_notify.add(tfm::format("Missed shot due to grass\n"));
 			}
 	}
 

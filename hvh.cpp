@@ -541,7 +541,7 @@ void HVH::DoRealAntiAim( ) {
 				float range = m_jitter_range / 2.f;
 
 				// set angle.
-				g_cl.m_cmd->m_view_angles.y += g_csgo.RandomFloat( -range, range );
+				g_cl.m_cmd->m_view_angles.y += g_csgo.RandomFloat(range, -range);
 				break;
 			}
 
@@ -665,7 +665,7 @@ void HVH::AntiAim( ) {
 	}
 
 	// disable conditions.
-	if( g_csgo.m_gamerules->m_bFreezePeriod( ) || ( g_cl.m_flags & FL_FROZEN ) || g_cl.m_round_end || ( g_cl.m_cmd->m_buttons & IN_USE ) )
+	if( g_csgo.m_gamerules->m_bFreezePeriod( ) || ( g_cl.m_flags & FL_FROZEN )  || ( g_cl.m_cmd->m_buttons & IN_USE ) )
 		return;
 
 	if (g_cl.m_local->m_MoveType() == MOVETYPE_NOCLIP || g_cl.m_local->m_MoveType() == MOVETYPE_LADDER)
