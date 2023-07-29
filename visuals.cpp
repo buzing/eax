@@ -1104,17 +1104,17 @@ void Visuals::DrawPlayer( Player* player ) {
 
 		Color clr = g_menu.main.players.name_color.get();
 		// override alpha.
-		clr.a() = low_alpha;
+		//clr.a() = low_alpha;
 
 		if (g_menu.main.misc.esp_style.get() == 0) {
 			if (dormant)
-			render::esp2.string(box.x + box.w / 2, box.y - render::esp2.m_size.m_height, Color(210, 210, 210, low_alpha), name, render::ALIGN_CENTER);
+			render::esp2.string(box.x + box.w / 2, box.y - render::esp2.m_size.m_height, Color(210, 200, 210), name, render::ALIGN_LEFT);
 			else
 			render::esp2.string(box.x + box.w / 2, box.y - render::esp2.m_size.m_height, Color(clr.r(), clr.g(), clr.b(), g_menu.main.players.name_esp_alpha.get()).alpha(name_alpha), name, render::ALIGN_CENTER);
 		}
 		else if (g_menu.main.misc.esp_style.get() == 1) {
 			if (dormant)
-				render::esp.string(box.x + box.w / 2, box.y - render::esp.m_size.m_height, Color(210, 210, 210, low_alpha), name, render::ALIGN_CENTER);
+				render::esp2.string(box.x + box.w / 2, box.y - render::esp2.m_size.m_height, Color(210, 200, 210), name, render::ALIGN_LEFT);
 			else
 				render::esp.string(box.x + box.w / 2, box.y - render::esp.m_size.m_height, Color(clr.r(), clr.g(), clr.b(), g_menu.main.players.name_esp_alpha.get()).alpha(name_alpha), name, render::ALIGN_CENTER);
 		}
@@ -1191,9 +1191,9 @@ void Visuals::DrawPlayer( Player* player ) {
 				if (player->m_ArmorValue() > 0) {
 					if (player->m_bHasHelmet())
 						if (dormant)
-						flags.push_back({ XOR("HK"), {  210, 210, 210, low_alpha } });
+						flags.push_back({ XOR("HK"), {  210, 210, 210 } });
 						else
-						flags.push_back({ XOR("HK"), {  255, 255, 255, low_alpha } });
+						flags.push_back({ XOR("HK"), {  255, 255, 255 } });
 					else
 				if (dormant)
 					flags.push_back({ XOR("K"), {  210, 210, 210, low_alpha } });
@@ -1205,16 +1205,16 @@ void Visuals::DrawPlayer( Player* player ) {
 			// scoped.
 			if( *it == 2 && player->m_bIsScoped( ) )
 				if (dormant)
-				flags.push_back( { XOR( "ZOOM" ), { 210, 210, 210, low_alpha } } );
+				flags.push_back( { XOR( "ZOOM" ), { 210, 210, 210 } } );
 				else
-				flags.push_back({ XOR("ZOOM"), {  0, 175, 255, low_alpha } });
+				flags.push_back({ XOR("ZOOM"), {  0, 175, 255 } });
 
 			// flashed.
 			if( *it == 3 && player->m_flFlashBangTime( ) > 0.f )
 				if (dormant)
-				flags.push_back( { XOR( "BLIND" ), { 210, 210, 210, low_alpha } } );
+				flags.push_back( { XOR( "BLIND" ), { 210, 210, 210 } } );
 				else
-				flags.push_back({ XOR("BLIND"), {  0, 175, 255, low_alpha } });
+				flags.push_back({ XOR("BLIND"), {  0, 175, 255 } });
 
 			// reload.
 			if( *it == 4 ) {
@@ -1224,17 +1224,17 @@ void Visuals::DrawPlayer( Player* player ) {
 				// check if reload animation is going on.
 				if( layer1->m_weight != 0.f && player->GetSequenceActivity( layer1->m_sequence ) == 967 /* ACT_CSGO_RELOAD */ )
 					if (dormant)
-					flags.push_back( { XOR( "R" ), { 210, 210, 210, low_alpha } } );
+					flags.push_back( { XOR( "R" ), { 210, 210, 210 } } );
 					else
-					flags.push_back({ XOR("R"), {  0, 175, 255, low_alpha } });
+					flags.push_back({ XOR("R"), {  0, 175, 255 } });
 			}
 
 			// bomb.
 			if( *it == 5 && player->HasC4( ) )
 				if (dormant) 
-				flags.push_back( { XOR( "B" ), { 210, 210, 210, low_alpha } } );
+				flags.push_back( { XOR( "B" ), { 210, 210, 210 } } );
 				else
-				flags.push_back({ XOR("B"), { 255, 0, 0, low_alpha } });
+				flags.push_back({ XOR("B"), { 255, 0, 0 } });
 
 			if (*it == 6 && g_resolver.iPlayers[player->index()] == true && enemy) {
 				if (dormant)
