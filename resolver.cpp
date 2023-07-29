@@ -343,7 +343,7 @@ bool Resolver::IsYawSideways(Player* entity, float yaw, bool smth)
 			entity->m_vecOrigin()).y)
 			- yaw));
 
-	return smth ? (delta > 24.f && delta < 165.f) : (delta >= 40.f && delta < 150.f);
+	return smth ? (delta > 24.f && delta < 150.f) : (delta >= 40.f && delta < 150.f);
 }
 
 bool Resolver::IsYawDistorting(AimPlayer* data, LagRecord* record, LagRecord* previous_record) {
@@ -541,7 +541,7 @@ void Resolver::ResolveStand(AimPlayer* data, LagRecord* record, Player* player) 
 	}
 	else {
 		auto local_player = g_cl.m_local;
-		//record->m_mode = Modes::RESOLVE_BRUTEFORCE;
+		record->m_mode = Modes::RESOLVE_BRUTEFORCE;
 		float away = GetAwayAngle(record);
 		float lower_body_yaw = record->m_body;
 		float forward_diff = fabsf(math::AngleDiff(lower_body_yaw, away));
