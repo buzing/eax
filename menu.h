@@ -2305,6 +2305,7 @@ public:
 
 		buy3.setup("", XOR("auto_buy3"),
 			{
+				XOR("vest"),
 				XOR("vesthelm"),
 				XOR("taser"),
 				XOR("defuser"),
