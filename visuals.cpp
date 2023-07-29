@@ -1932,31 +1932,31 @@ void Visuals::RenderGlow() {
 
 		const auto classid = obj->m_entity->GetClientClass()->m_ClassID;
 
-		if (is_grenade(classid) && g_menu.main.visuals.proj.get()) {
-			color = g_menu.main.visuals.proj_col.get();
+		//if (is_grenade(classid) && g_menu.main.visuals.proj.get()) {
+			//color = g_menu.main.visuals.proj_col.get();
 
-			float blend = g_menu.main.visuals.proj_col_slider.get() / 100.f;
+			//float blend = g_menu.main.visuals.proj_col_slider.get() / 100.f;
 
-			obj->m_render_occluded = true;
-			obj->m_render_unoccluded = false;
-			obj->m_render_full_bloom = false;
-			obj->m_color = { (float)color.r() / 255.f, (float)color.g() / 255.f, (float)color.b() / 255.f };
-			obj->m_alpha = blend;
-			obj->m_bloom_amount = 1.f;
-		}
+			//obj->m_render_occluded = true;
+			//obj->m_render_unoccluded = false;
+			//obj->m_render_full_bloom = false;
+			//obj->m_color = { (float)color.r() / 255.f, (float)color.g() / 255.f, (float)color.b() / 255.f };
+			//obj->m_alpha = blend;
+			//obj->m_bloom_amount = 1.f;
+		//}
 
-		if (isc4(classid) && g_menu.main.visuals.planted_c4.get()) {
-			color = g_menu.main.visuals.bomb_col.get();
+		//if (isc4(classid) && g_menu.main.visuals.planted_c4.get()) {
+			//color = g_menu.main.visuals.bomb_col.get();
 
-			float blend = g_menu.main.visuals.bomb_col_glow_slider.get() / 100.f;
+			//float blend = g_menu.main.visuals.bomb_col_glow_slider.get() / 100.f;
 
-			obj->m_render_occluded = true;
-			obj->m_render_unoccluded = false;
-			obj->m_render_full_bloom = false;
-			obj->m_color = { (float)color.r() / 255.f, (float)color.g() / 255.f, (float)color.b() / 255.f };
-			obj->m_alpha = blend;
-			obj->m_bloom_amount = 1.f;
-		}
+			//obj->m_render_occluded = true;
+			//obj->m_render_unoccluded = false;
+			//obj->m_render_full_bloom = false;
+			//obj->m_color = { (float)color.r() / 255.f, (float)color.g() / 255.f, (float)color.b() / 255.f };
+			//obj->m_alpha = blend;
+			//obj->m_bloom_amount = 1.f;
+		//}
 
 		if (obj->m_entity->IsBaseCombatWeapon() && g_menu.main.visuals.itemsglow.get()) {
 			color = g_menu.main.visuals.item_color.get();
