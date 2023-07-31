@@ -980,9 +980,9 @@ public:
 		//bomb_col_glow_slider.AddShowCallback(callbacks::bombon);
 		//RegisterElement(&bomb_col_glow_slider);
 
-		bomb_col_slider.setup("bomb text color", XOR("bomb_col_slider"), 0.f, 255.f, true, 0, 180, 1.f, XOR(L"%"));
-		bomb_col_slider.AddShowCallback(callbacks::bombon);
-		RegisterElement(&bomb_col_slider);
+		//bomb_col_slider.setup("bomb text color", XOR("bomb_col_slider"), 0.f, 255.f, true, 0, 180, 1.f, XOR(L"%"));
+		//bomb_col_slider.AddShowCallback(callbacks::bombon);
+		//RegisterElement(&bomb_col_slider);
 
 		tracers.setup(XOR("grenade trajectory"), XOR("tracers"));
 		RegisterElement(&tracers);
@@ -994,16 +994,16 @@ public:
 		spectators.setup(XOR("spectators"), XOR("spectators"));
 		RegisterElement(&spectators);
 
-		pen_crosshair.setup(XOR("penetration reticle"), XOR("pen_xhair"));
-		RegisterElement(&pen_crosshair);
+		//_crosshair.setup(XOR("penetration reticle"), XOR("pen_xhair"));
+		//RegisterElement(&pen_crosshair);
 
-		penetrable_color.setup(XOR("penetrable color"), XOR("penetrable_color"), { 0, 255, 0, 210 });
-		penetrable_color.AddShowCallback(callbacks::peneton);
-		RegisterElement(&penetrable_color);
+		//penetrable_color.setup(XOR("penetrable color"), XOR("penetrable_color"), { 0, 255, 0, 210 });
+		//penetrable_color.AddShowCallback(callbacks::peneton);
+		//RegisterElement(&penetrable_color);
 
-		unpenetrable_color.setup(XOR("unpenetrable color"), XOR("ammo_color"), { 255, 0, 0, 210 });
-		unpenetrable_color.AddShowCallback(callbacks::peneton);
-		RegisterElement(&unpenetrable_color);
+		//unpenetrable_color.setup(XOR("unpenetrable color"), XOR("ammo_color"), { 255, 0, 0, 210 });
+		//unpenetrable_color.AddShowCallback(callbacks::peneton);
+		//RegisterElement(&unpenetrable_color);
 
 		// col2.
 
