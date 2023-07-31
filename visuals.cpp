@@ -23,13 +23,13 @@ void Visuals::ModulateWorld() {
 
 	// night
 
-	Color col = g_menu.main.visuals.nightcolor.get();
+	//Color col = g_menu.main.visuals.nightcolor.get();
 	Color col2 = g_menu.main.visuals.propscolor.get();
 
 	if (g_menu.main.visuals.world.get(0)) {
 		for (const auto& w : world)
 
-			w->ColorModulate(col.r() / 255.f, col.g() / 255.f, col.b() / 255.f);
+			w->ColorModulate(0.17f, 0.16f, 0.18f);
 
 		// IsUsingStaticPropDebugModes my nigga
 		if (g_csgo.r_DrawSpecificStaticProp->GetInt() != 0) {

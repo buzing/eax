@@ -107,8 +107,8 @@ public:
 
 		// col2.
 
-		nospread.setup( XOR( "remove spread" ), XOR( "nospread" ) );
-		RegisterElement( &nospread, 1 );
+		//nospread.setup( XOR( "remove spread" ), XOR( "nospread" ) );
+		//RegisterElement( &nospread, 1 );
 
 		norecoil.setup( XOR( "remove recoil" ), XOR( "norecoil" ) );
 		RegisterElement( &norecoil, 1 );
@@ -911,37 +911,37 @@ public:
 		enemy_radar.setup(XOR("radar"), XOR("enemy_radar"));
 		RegisterElement(&enemy_radar);
 
-		items.setup(XOR("dropped weapons text"), XOR("items"));
-		RegisterElement(&items);
+		//items.setup(XOR("dropped weapons text"), XOR("items"));
+		//RegisterElement(&items);
 
-		itemsglow.setup(XOR("dropped weapons glow"), XOR("itemsglow"));
-		RegisterElement(&itemsglow);
+		//itemsglow.setup(XOR("dropped weapons glow"), XOR("itemsglow"));
+		//RegisterElement(&itemsglow);
 
-		glow_color_alpha.setup("", XOR("glow_color_alpha"), 0.f, 100.f, false, 0, 85.f, 1.f, XOR(L"%"));
-		glow_color_alpha.AddShowCallback(callbacks::droppedglowewpaon);
-		RegisterElement(&glow_color_alpha);
+		//glow_color_alpha.setup("", XOR("glow_color_alpha"), 0.f, 100.f, false, 0, 85.f, 1.f, XOR(L"%"));
+		//glow_color_alpha.AddShowCallback(callbacks::droppedglowewpaon);
+		//RegisterElement(&glow_color_alpha);
 
-		items_distance.setup(XOR("dropped weapons distance"), XOR("items_distance"));
-		RegisterElement(&items_distance);
+		//items_distance.setup(XOR("dropped weapons distance"), XOR("items_distance"));
+		//RegisterElement(&items_distance);
 
-		item_color.setup(XOR("dropped weapons color"), XOR("item_color"), colors::white);
-		item_color.AddShowCallback(callbacks::droppedwpnson);
-		RegisterElement(&item_color);
+		//item_color.setup(XOR("dropped weapons color"), XOR("item_color"), colors::white);
+		//item_color.AddShowCallback(callbacks::droppedwpnson);
+		//RegisterElement(&item_color);
 
-		item_color_alpha.setup("", XOR("item_color_alpha"), 0.f, 255, false, 0, 180, 1.f, XOR(L"%"));
-		item_color_alpha.AddShowCallback(callbacks::droppedwpnson);
-		RegisterElement(&item_color_alpha);
+		//item_color_alpha.setup("", XOR("item_color_alpha"), 0.f, 255, false, 0, 180, 1.f, XOR(L"%"));
+		//item_color_alpha.AddShowCallback(callbacks::droppedwpnson);
+		//RegisterElement(&item_color_alpha);
 
-		ammo.setup(XOR("dropped weapons ammo"), XOR("ammo"));
-		RegisterElement(&ammo);
+		//ammo.setup(XOR("dropped weapons ammo"), XOR("ammo"));
+		//RegisterElement(&ammo);
 
-		ammo_color.setup(XOR("weapon ammo color"), XOR("ammo_color"), colors::white);
-		ammo_color.AddShowCallback(callbacks::ammoon);
-		RegisterElement(&ammo_color);
+		//ammo_color.setup(XOR("weapon ammo color"), XOR("ammo_color"), colors::white);
+		//ammo_color.AddShowCallback(callbacks::ammoon);
+		//RegisterElement(&ammo_color);
 
-		ammo_color_alpha.setup("", XOR("ammo_color_alpha"), 0.f, 255, false, 0, 180, 1.f, XOR(L"%"));
-		ammo_color_alpha.AddShowCallback(callbacks::ammoon);
-		RegisterElement(&ammo_color_alpha);
+		//ammo_color_alpha.setup("", XOR("ammo_color_alpha"), 0.f, 255, false, 0, 180, 1.f, XOR(L"%"));
+		//ammo_color_alpha.AddShowCallback(callbacks::ammoon);
+		//RegisterElement(&ammo_color_alpha);
 
 		proj.setup(XOR("projectiles"), XOR("proj"));
 		RegisterElement(&proj);
@@ -962,9 +962,9 @@ public:
 		proj_col.AddShowCallback(callbacks::grenadeson);
 		RegisterElement(&proj_col);
 
-		proj_col_slider.setup("", XOR("proj_col_slider"), 0.f, 100.f, false, 0, 100, 1.f, XOR(L"%"));
-		proj_col_slider.AddShowCallback(callbacks::grenadeson);
-		RegisterElement(&proj_col_slider);
+		//proj_col_slider.setup("", XOR("proj_col_slider"), 0.f, 100.f, false, 0, 100, 1.f, XOR(L"%"));
+		//proj_col_slider.AddShowCallback(callbacks::grenadeson);
+		//RegisterElement(&proj_col_slider);
 
 		force_xhair.setup(XOR("crosshair"), XOR("force_xhair"));
 		RegisterElement(&force_xhair);
@@ -976,9 +976,9 @@ public:
 		bomb_col.AddShowCallback(callbacks::bombon);
 		RegisterElement(&bomb_col);
 
-		bomb_col_glow_slider.setup("bomb glow color", XOR("bomb_col_glow_slider"), 0.f, 100.f, true, 0, 80, 1.f, XOR(L"%"));
-		bomb_col_glow_slider.AddShowCallback(callbacks::bombon);
-		RegisterElement(&bomb_col_glow_slider);
+		//bomb_col_glow_slider.setup("bomb glow color", XOR("bomb_col_glow_slider"), 0.f, 100.f, true, 0, 80, 1.f, XOR(L"%"));
+		//bomb_col_glow_slider.AddShowCallback(callbacks::bombon);
+		//RegisterElement(&bomb_col_glow_slider);
 
 		bomb_col_slider.setup("bomb text color", XOR("bomb_col_slider"), 0.f, 255.f, true, 0, 180, 1.f, XOR(L"%"));
 		bomb_col_slider.AddShowCallback(callbacks::bombon);
@@ -1022,12 +1022,12 @@ public:
 		world.SetCallback(Visuals::ModulateWorld);
 		RegisterElement(&world, 1);
 
-		nightcolor.setup("world color", XOR("nightcolor"), { 43, 41, 46 });
+		//nightcolor.setup("world color", XOR("nightcolor"), { 43, 41, 46 });
 		nightcolor.SetCallback(Visuals::ModulateWorld);
 		nightcolor.AddShowCallback(callbacks::IsNightMode);
 		RegisterElement(&nightcolor, 1);
 
-		propscolor.setup("props color", XOR("propscolor"), { 128, 128, 128 });
+		propscolor.setup("props color", XOR("propscolor"), { 255, 255, 255 });
 		propscolor.SetCallback(Visuals::ModulateWorld);
 		RegisterElement(&propscolor, 1);
 
@@ -1049,8 +1049,8 @@ public:
 		thirdperson.SetToggleCallback(callbacks::ToggleThirdPerson);
 		RegisterElement(&thirdperson, 1);
 
-		disableteam.setup(XOR("disable rendering of teammates"), XOR("disableteam"));
-		RegisterElement(&disableteam, 1);
+		//disableteam.setup(XOR("disable rendering of teammates"), XOR("disableteam"));
+		//RegisterElement(&disableteam, 1);
 
 		impact_beams.setup(XOR("bullet tracers"), XOR("impact_beams"));
 		RegisterElement(&impact_beams, 1);
@@ -2245,8 +2245,8 @@ public:
 		autostrafe.setup(XOR("air strafe"), XOR("autostrafe"));
 		RegisterElement(&autostrafe);
 
-		airduck.setup(XOR("air duck"), XOR("airduck"));
-		RegisterElement(&airduck);
+		//airduck.setup(XOR("air duck"), XOR("airduck"));
+		//RegisterElement(&airduck);
 
 		knifebot.setup(XOR("knifebot"), XOR("knifebot"));
 		RegisterElement(&knifebot);
@@ -2269,8 +2269,8 @@ public:
 		fake_latency_amt.AddShowCallback(callbacks::ToggleFakeLatencyOn);
 		RegisterElement(&fake_latency_amt);
 
-		weaponpurchases.setup(XOR("log weapon purchases"), XOR("weaponpurchases"));
-		RegisterElement(&weaponpurchases);
+		//weaponpurchases.setup(XOR("log weapon purchases"), XOR("weaponpurchases"));
+		//RegisterElement(&weaponpurchases);
 
 		logdamagedealt.setup(XOR("log damage dealt"), XOR("logdamagedealt"));
 		RegisterElement(&logdamagedealt);
@@ -2330,8 +2330,8 @@ public:
 		interpolation.setup(XOR("interpolation"), XOR("interpolation"));
 		RegisterElement(&interpolation, 1);
 
-		bodeeeelean.setup(XOR("bodee lean"), XOR("bodeeeelean"));
-		RegisterElement(&bodeeeelean, 1);
+		//bodeeeelean.setup(XOR("bodee lean"), XOR("bodeeeelean"));
+		//RegisterElement(&bodeeeelean, 1);
 
 		menu_color.setup(XOR("menu color"), XOR("menu_color"), { colors::light_blue }, &g_gui.m_color);
 		RegisterElement(&menu_color, 1);
