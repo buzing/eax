@@ -625,7 +625,7 @@ void HVH::DoFakeAntiAim( ) {
 
 		  // rotate.
 	case 4:
-		g_cl.m_cmd->m_view_angles.y = m_direction + 90.f + std::fmod( g_csgo.m_globals->m_curtime * 360.f, 180.f );
+		g_cl.m_cmd->m_view_angles.y = m_yaw + 0.f + std::fmod( g_csgo.m_globals->m_curtime * 360.f, 360.f );
 		break;
 
 		// random.

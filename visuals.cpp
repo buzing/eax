@@ -293,7 +293,7 @@ void Visuals::Spectators( ) {
 	if( !g_menu.main.visuals.spectators.get( ) )
 		return;
 
-	std::vector< std::string > spectators{ XOR( "spectators" ) };
+	std::vector< std::string > spectators{ XOR( "" ) };
 	int h = render::menu_shade.m_size.m_height;
 
 	for( int i{ 1 }; i <= g_csgo.m_globals->m_max_clients; ++i ) {
@@ -325,8 +325,8 @@ void Visuals::Spectators( ) {
 	for( size_t i{ }; i < spectators.size( ); ++i ) {
 		const std::string& name = spectators[ i ];
 
-		render::menu_shade.string( g_cl.m_width - 20, ( g_cl.m_height / 2 ) - ( total_size / 2 ) + ( i * ( h - 1 ) ),
-			{ 255, 255, 255, 179 }, name, render::ALIGN_RIGHT );
+		render::menu_shade.string( g_cl.m_width - 25, ( g_cl.m_height / 2 ) - ( total_size / 2 ) + ( i * ( h - 1 ) ),
+			{ 255, 255, 255, 255 }, name, render::ALIGN_RIGHT );
 	}
 }
 
@@ -358,7 +358,7 @@ void Visuals::StatusIndicators() {
 		if (g_input.GetKeyState(g_menu.main.aimbot.override.get())) {
 			Indicator_t ind{ };
 			ind.color = Color(255, 0, 0);
-			ind.text = XOR("OVERRIDE");
+			ind.text = XOR("OVR");
 			indicators.push_back(ind);
 		}
 
@@ -400,7 +400,7 @@ void Visuals::StatusIndicators() {
 		if (g_aimbot.m_fake_latency) {
 			Indicator_t ind{ };
 			ind.color = LerpRGB(Color(255, 0, 0), Color(150, 200, 60), std::clamp((g_csgo.m_cl->m_net_channel->GetLatency(INetChannel::FLOW_INCOMING) * 2500.f) / g_menu.main.misc.fake_latency_amt.get(), 0.f, 1.f));
-			ind.text = tfm::format(XOR("%i"), g_menu.main.misc.fake_latency_amt.get());
+			ind.text = tfm::format(XOR("PING"));
 			indicators.push_back(ind);
 		}
 
@@ -451,10 +451,10 @@ void Visuals::StatusIndicators() {
 		// get the absolute change between current lby and animated angle.
 		float change = std::abs(math::NormalizedAngle(g_cl.m_body - g_cl.m_angle.y));
 
-		Indicator_t ind{ };
-		ind.color = change > 35.f ? Color(171, 237, 71, lol) : Color(255, 77, 77, lol);
-		ind.text = XOR("lby");
-		indicators.push_back(ind);
+			Indicator_t ind{ };
+			ind.color = change > 35.f ? Color(171, 237, 71, lol) : Color(255, 77, 77, lol);
+			ind.text = XOR("lby");
+			indicators.push_back(ind);
 
 	}
 	//LOL im high 24/7 keep crying youre so mad and I think I know why ahHHAhahaha

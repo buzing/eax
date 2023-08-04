@@ -49,14 +49,16 @@ void Client::DrawHUD( ) {
 	// get tickrate.
 	int rate = ( int ) std::round( 1.f / g_csgo.m_globals->m_interval );
 
-	std::string text = tfm::format( XOR( "eax | rtt: %ims | rate: %i | %s" ), ms, rate, time.str( ).data( ) );
+	std::string text = tfm::format( XOR( "p:%i | r:%i" ), ms, rate, time.str( ).data( ) );
 	render::FontSize_t size = render::hud.size( text );
 
 	// background.
-	render::rect_filled( m_width - size.m_width - 20, 10, size.m_width + 10, size.m_height + 2, { 15, 10, 15, 170 } );
+	render::rect_filled( m_width - size.m_width - 20, 10, size.m_width + 10, size.m_height + 2, { 20, 15, 25, 180 } );
+	//background 2 - idea by sion
+	render::rect_filled(m_width - size.m_width - 20, 10, size.m_width + 10, size.m_height + 4, { 25, 30, 20, 127 });
 
 	// text.
-	render::hud.string( m_width - 15, 10, { 255, 255, 255, 255 }, text, render::ALIGN_RIGHT );
+	render::hud.string( m_width - 15, 10, { 178, 190, 181, 255 }, text, render::ALIGN_RIGHT );
 
 }
 

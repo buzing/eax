@@ -21,7 +21,7 @@ void render::init( ) {
 	esp2 = Font(XOR("Verdana"), 12, FW_BOLD, FONTFLAG_DROPSHADOW);
 	esp_small = Font(XOR("Smallest Pixel-7"), 10, FW_NORMAL, FONTFLAG_OUTLINE);
 	esp_small2 = Font(XOR("Small Fonts"), 9, FW_NORMAL, FONTFLAG_OUTLINE);
-	hud = Font(XOR("Tahoma"), 16, FW_NORMAL, FONTFLAG_ANTIALIAS);
+	hud = Font(XOR("Tahoma"), 16, FW_BOLD, FONTFLAG_DROPSHADOW);
 	cs = Font(XOR("Undefeated"), 14, FW_NORMAL, FONTFLAG_ANTIALIAS | FONTFLAG_DROPSHADOW);
 	indicator = Font(XOR("Verdana"), 26, FW_BOLD, FONTFLAG_ANTIALIAS | FONTFLAG_DROPSHADOW);
 	indicator2 = Font(XOR("Bahnschrift"), 28, FW_MEDIUM, FONTFLAG_ANTIALIAS | FONTFLAG_DROPSHADOW);
