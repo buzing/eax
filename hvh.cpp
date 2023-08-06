@@ -26,7 +26,7 @@ void HVH::AntiAimPitch( ) {
 
 	case 3:
 		// random.
-		g_cl.m_cmd->m_view_angles.x = g_csgo.RandomFloat( safe ? -89.f : -720.f, safe ? 89.f : 720.f );
+		g_cl.m_cmd->m_view_angles.x = g_csgo.RandomFloat( 0.f, 89.f );
 		break;
 
 	case 4:
