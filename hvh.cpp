@@ -12,7 +12,8 @@ void HVH::IdealPitch( ) {
 
 void HVH::AntiAimPitch( ) {
 	bool safe = true;
-	
+	bool airp = g_menu.main.antiaim.pitch_air.get() > 0 && m_mode == AntiAimMode::AIR;
+
 	switch( m_pitch ) {
 	case 1:
 		// down.
@@ -27,6 +28,9 @@ void HVH::AntiAimPitch( ) {
 	case 3:
 		// random.
 		g_cl.m_cmd->m_view_angles.x = g_csgo.RandomFloat( 0.f, 89.f );
+
+		if (airp)
+		g_cl.m_cmd->m_view_angles.x = g_csgo.RandomFloat(-89.f, 0.f);
 		break;
 
 	case 4:
@@ -665,7 +669,7 @@ void HVH::AntiAim( ) {
 	}
 
 	// disable conditions.
-	if( g_csgo.m_gamerules->m_bFreezePeriod( ) || ( g_cl.m_flags & FL_FROZEN )  || ( g_cl.m_cmd->m_buttons & IN_USE ) )
+	if((g_cl.m_flags & FL_FROZEN); g_cl.m_cmd->m_buttons & IN_USE )
 		return;
 
 	if (g_cl.m_local->m_MoveType() == MOVETYPE_NOCLIP || g_cl.m_local->m_MoveType() == MOVETYPE_LADDER)
