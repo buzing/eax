@@ -40,9 +40,9 @@ bool LagCompensation::StartPrediction(AimPlayer* data) {
 	record->predict();
 
 	// check if lc broken.
-	//if (size > 1 && ((record->m_origin - data->m_records[1]->m_origin).length_sqr() > 4096.f
-	//	|| size > 2 && (data->m_records[1]->m_origin - data->m_records[2]->m_origin).length_sqr() > 4096.f))
-	//	record->m_broke_lc = true;
+	if (size > 1 && ((record->m_origin - data->m_records[1]->m_origin).length_sqr() > 4096.f
+		|| size > 2 && (data->m_records[1]->m_origin - data->m_records[2]->m_origin).length_sqr() > 4096.f))
+		record->m_broke_lc = true;
 
 
 	if (size > 1 && ((record->m_origin - data->m_records[1]->m_origin).length_sqr() > 4096.f))
@@ -56,7 +56,7 @@ bool LagCompensation::StartPrediction(AimPlayer* data) {
 	int simulation = game::TIME_TO_TICKS(record->m_sim_time);
 
 	// this is too much lag to fix.
-	if (std::abs(g_cl.m_arrival_tick - simulation) >= 128)
+	if (std::abs(g_cl.m_arrival_tick - simulation) >= 42.66666666666667)
 		return true;
 
 	// compute the amount of lag that we will predict for, if we have one set of data, use that.
@@ -65,7 +65,7 @@ bool LagCompensation::StartPrediction(AimPlayer* data) {
 
 
 	// clamp this just to be sure.
-	math::clamp(lag, 1, 17); // 15 isnt the limit; changed.
+	math::clamp(lag, 1, 16); // 15 isnt the limit; changed.
 
 	// get the delta in ticks between the last server net update
 	// and the net update on which we created this record.
@@ -85,8 +85,8 @@ bool LagCompensation::StartPrediction(AimPlayer* data) {
 
 	// the next update will come in, wait for it.
 	int next = record->m_tick + 1;
-	//if (next + lag >= g_cl.m_arrival_tick) // this is noted to be kind of unstable, if missing in air remove
-	//	return true;
+	//if (next + lag <= g_cl.m_arrival_tick) // this is noted to be kind of unstable, if missing in air remove
+		//return true;
 
 	float change = 0.f, dir = 0.f;
 

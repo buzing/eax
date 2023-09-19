@@ -513,7 +513,9 @@ void HVH::DoRealAntiAim( ) {
 
 					// left.
 				case 1:
-					g_cl.m_cmd->m_view_angles.y += 90.f;
+					//g_cl.m_cmd->m_view_angles.y += g_csgo.RandomFloat( 0.f, -90.f);
+					g_cl.m_cmd->m_view_angles.x = 89.f;
+					g_cl.m_cmd->m_view_angles.y = m_yaw + 0.f + std::fmod(g_csgo.m_globals->m_curtime * 180.f, 180.f);
 					break;
 
 					// right.

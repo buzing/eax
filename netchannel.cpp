@@ -39,7 +39,9 @@ int Hooks::SendDatagram(void* data) {
 
     float spike = g_aimbot.m_fake_latency ? g_menu.main.misc.fake_latency_amt.get() : g_menu.main.misc.fake_latency_amt.get();
 
-    float correct = std::max(0.f, (spike / 1000.f) - g_cl.m_lerp);
+   // static auto sv_maxunlag = g_csgo.m_cvar->FindVar(HASH("sv_maxunlag"));
+
+    float correct = std::max(0.f, (spike / 300.f ) - g_cl.m_lerp);
     if (g_aimbot.m_fake_latency) {
         FakePing(backup1, correct);
     }

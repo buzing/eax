@@ -46,14 +46,14 @@ void Client::DrawHUD( ) {
 	// get round trip time in milliseconds.
 	int ms = std::max( 0, ( int ) std::round( g_cl.m_latency * 1000.f ) );
 
-	float pitchprint = m_view_angles.x;
-	float yawprint = m_view_angles.y;
+	int pitchprint = m_view_angles.x;
+	int yawprint = m_view_angles.y;
 
 
 	// get tickrate.
 	int rate = ( int ) std::round( 1.f / g_csgo.m_globals->m_interval );
 
-	std::string text = tfm::format( XOR( "p:%i | r:%i | pitch: %f | yaw: %f" ), ms, rate, pitchprint, yawprint );
+	std::string text = tfm::format( XOR( "p:%i | r:%i | p:%i y:%i" ), ms, rate, pitchprint, yawprint);
 	render::FontSize_t size = render::hud.size( text );
 
 	// background.

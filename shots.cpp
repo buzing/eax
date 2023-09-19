@@ -133,7 +133,7 @@ void Shots::OnShotFire(Player* target, float damage, int bullets, LagRecord* rec
 			shot.m_had_pred_error = history_ticks < 0;
 			if (data)
 				++data->m_shots;
-				g_notify.add(tfm::format("n: %s[%i], m: %s, bt: %i,  p: %s\n", info.m_name, target->index(), TranslateResolverMode(record->m_mode), game::TIME_TO_TICKS(data->m_records.front().get()->m_sim_time - record->m_sim_time), m_groups[hitgroup]));
+			//	g_notify.add(tfm::format("n: %s[%i], m: %s, bt: %i,  p: %s\n", info.m_name, target->index(), TranslateResolverMode(record->m_mode), game::TIME_TO_TICKS(data->m_records.front().get()->m_sim_time - record->m_sim_time), m_groups[hitgroup]));
 		}
 
 		// add to tracks.
