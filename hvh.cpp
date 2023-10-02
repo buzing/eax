@@ -628,7 +628,10 @@ void HVH::DoFakeAntiAim( ) {
 		g_cl.m_cmd->m_view_angles.y = m_direction + 180.f;
 
 		// apply jitter.
-		g_cl.m_cmd->m_view_angles.y += g_csgo.RandomFloat( -range, range );
+		static bool flip_jitter;
+		flip_jitter = !flip_jitter;
+		if(flip_jitter)
+		g_cl.m_cmd->m_view_angles.y -= range ;
 		break;
 	}
 
