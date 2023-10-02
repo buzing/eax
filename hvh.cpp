@@ -545,9 +545,12 @@ void HVH::DoRealAntiAim( ) {
 
 				// get the range from the menu.
 				float range = m_jitter_range / 2.f;
+				static bool flip_jitter;
+				flip_jitter = !flip_jitter;
 
 				// set angle.
-				g_cl.m_cmd->m_view_angles.y += g_csgo.RandomFloat(range, -range);
+				if(flip_jitter)
+				g_cl.m_cmd->m_view_angles.y += range;
 				break;
 			}
 
