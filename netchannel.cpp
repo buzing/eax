@@ -41,7 +41,7 @@ int Hooks::SendDatagram(void* data) {
 
    // static auto sv_maxunlag = g_csgo.m_cvar->FindVar(HASH("sv_maxunlag"));
 
-    float correct = std::max(0.f, (spike / 300.f ) - g_cl.m_lerp);
+    float correct = std::max(0.f, (spike / 1000.f ) - g_cl.m_lerp);
     if (g_aimbot.m_fake_latency) {
         FakePing(backup1, correct);
     }

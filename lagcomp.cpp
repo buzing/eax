@@ -56,7 +56,7 @@ bool LagCompensation::StartPrediction(AimPlayer* data) {
 	int simulation = game::TIME_TO_TICKS(record->m_sim_time);
 
 	// this is too much lag to fix.
-	if (std::abs(g_cl.m_arrival_tick - simulation) >= 42.66666666666667)
+	if (std::abs(g_cl.m_arrival_tick - simulation) >= 128)
 		return true;
 
 	// compute the amount of lag that we will predict for, if we have one set of data, use that.
