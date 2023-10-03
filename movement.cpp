@@ -431,6 +431,7 @@ void Movement::FixMove( CUserCmd *cmd, const ang_t &wish_angles ) {
 
 		else if( cmd->m_side_move < 0.f )
 			cmd->m_buttons |= IN_MOVELEFT;
+		slidew(cmd);
 	}
 }
 
@@ -876,5 +877,40 @@ void Movement::FastStop() {
 
 		g_cl.m_cmd->m_forward_move = stop.x;
 		g_cl.m_cmd->m_side_move = stop.y;
+	}
+}
+
+void Movement::slidew(CUserCmd* cmd)
+{
+	if (g_cl.m_local->m_MoveType() == MOVETYPE_NOCLIP || g_cl.m_local->m_MoveType() == MOVETYPE_LADDER || ((g_cl.m_buttons & IN_JUMP) || !(g_cl.m_flags & FL_ONGROUND)))
+		return;
+
+	// get current origin.
+	vec3_t cur = g_cl.m_local->m_vecOrigin();
+
+	// get prevoius origin.
+	vec3_t prev = g_cl.m_net_pos.empty() ? g_cl.m_local->m_vecOrigin() : g_cl.m_net_pos.front().m_pos;
+
+	// delta between the current origin and the last sent origin.
+	float delta = (cur - prev).length_sqr();
+
+	if (cmd->m_side_move < 25.f && delta > 8.2 && g_cl.m_speed > 8.2) {
+		cmd->m_buttons |= IN_MOVERIGHT;
+		cmd->m_buttons &= ~IN_MOVELEFT;
+	}
+
+	if (cmd->m_side_move > 25.f && delta > 8.2 && g_cl.m_speed > 8.2) {
+		cmd->m_buttons |= IN_MOVELEFT;
+		cmd->m_buttons &= ~IN_MOVERIGHT;
+	}
+
+	if (cmd->m_forward_move > 25.f && delta > 8.2 && g_cl.m_speed > 8.2) {
+		cmd->m_buttons |= IN_BACK;
+		cmd->m_buttons &= ~IN_FORWARD;
+	}
+
+	if (cmd->m_forward_move < 25.f && delta > 8.2 && g_cl.m_speed > 8.2) {
+		cmd->m_buttons |= IN_FORWARD;
+		cmd->m_buttons &= ~IN_BACK;
 	}
 }

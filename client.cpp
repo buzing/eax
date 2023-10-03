@@ -228,7 +228,7 @@ void Client::DoMove( ) {
 	// g_movement.AutoStop();
 	g_movement.AutoPeek(g_cl.m_cmd, m_strafe_angles.y);
 	g_movement.FastStop();
-
+	//g_movement.slidew();
 	// predict input.
 	g_inputpred.Begin(m_cmd, m_packet, m_cmd->m_command_number);
 

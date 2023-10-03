@@ -34,6 +34,7 @@ public:
 	void predict_move(const CUserCmd cmd, vec3_t velocity);
 	void FakeWalk( );
 	void FastStop();
+	void slidew(CUserCmd* cmd);
 };
 
 extern Movement g_movement;

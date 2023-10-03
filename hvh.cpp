@@ -544,13 +544,13 @@ void HVH::DoRealAntiAim( ) {
 			case 2: {
 
 				// get the range from the menu.
-				float range = m_jitter_range / 2.f;
+				float range = m_jitter_range;
 				static bool flip_jitter;
 				flip_jitter = !flip_jitter;
 
 				// set angle.
-				if(flip_jitter)
-				g_cl.m_cmd->m_view_angles.y += range;
+				
+				g_cl.m_cmd->m_view_angles.y += flip_jitter ? range : -range;
 				break;
 			}
 
